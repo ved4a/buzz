@@ -1,14 +1,2 @@
 backend/build/
-*.o
-*.out
-*.exe
-__pycache__/
-*.pyc
-.vscode
-# Python venv
-.venv/
-venv/
-env/
-.DS_Store
-frontend/.DS_Store
-buzz-linux-x86_64.tar.gz
+.vscode/

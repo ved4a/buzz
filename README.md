@@ -1,85 +1,24 @@
-# TaskMan: A Lightweight System Resource Monitor
-## How 2 Run (4 my own reference)
-**Note:** working dir is project-1-another1bytesthedust
-### Backend
-```
-    cd backend
-    mkdir build && cd build
-    cmake ..
-    make
-    ./system_monitor
-```
-The output should be pretty JSON.
-### Frontend
+# Buzz: A Lightweight Resource Monitor
 
-```
-pip install pyqt5 psutil
-cd frontend
-python3 main.py
-```
-A box should pop up with a button saying "Get Metrics" upon which CPU and RAM usage will be pulled from our backend.
-## File Structure (Current)
-```
-> backend
-    > build
-        build files...
-    > include
-        > nlohmann
-            json.hpp
-        battery.hpp
-        cpu.hpp
-        memory.hpp
-        processes.hpp
-        network.hpp
-    > src
-        main.cpp
-        battery.cpp
-        cpu.cpp
-        disk.cpp
-        memory.cpp
-        network.cpp
-        processes.cpp
-    CMakeLists.txt
-> dist
-    final executable
-> frontend
-    main.py
-    > assets
-        ...
-    ...
-.gitignore
-README.md
-requirements.txt
-```
+This folder contains a portable distribution of the Buzz terminal resource monitor.
 
-## File Structure (Future)
-```
-> backend
-    > build
-        build files...
-    > include
-        > nlohmann
-            json.hpp
-        cpu.hpp
-        memory.hpp
-        process.hpp
-        disk.hpp
-        network.hpp
-    > src
-        main.cpp
-        cpu.cpp
-        memory.cpp
-        process.cpp
-        disk.cpp
-        network.cpp
-    CMakeLists.txt
-> dist
-    final executable
-> frontend
-    main.py
-.gitignore
-README.md
-requirements.txt
-```
+What you get here:
+- `buzz` — the compiled binary
+- `run.sh` — launcher that opens a terminal when double-clicked from a file manager
+- `buzz.desktop` — desktop launcher that runs in a terminal
 
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/ybo2Cjmz)
+Usage
+- Double-click `buzz.desktop` to launch in a terminal with default settings.
+- Or double-click `run.sh` (choose “Run in Terminal” if prompted).
+- Or run from a shell with custom options, for example:
+  - `./buzz --sort mem`
+  - `./buzz --top 50`
+
+Build and package
+- From the repo root, run:
+  - `bash dist/package.sh`
+- This will build (if needed) and copy the binary into `dist/`.
+
+Notes
+- Some file managers require marking `.desktop` files as “Trusted” before double-clicking (right-click → Properties → Permissions → Allow launching).
+- The launcher tries common terminal emulators when double-clicked outside a terminal. If none are installed, run from your terminal instead.
