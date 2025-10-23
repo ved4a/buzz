@@ -1,6 +1,6 @@
 # Buzz: A Lightweight Resource Monitor
 
-This folder contains a portable distribution of the Buzz terminal resource monitor.
+The folder "buzz" contains a portable distribution of the Buzz terminal resource monitor.
 
 What you get here:
 - `buzz` — the compiled binary
