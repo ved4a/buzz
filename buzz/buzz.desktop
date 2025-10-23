@@ -1,0 +1,17 @@
+[Desktop Entry]
+Type=Application
+Name=Buzz (Terminal Resource Monitor)
+Comment=Run the Buzz resource monitor in a terminal
+Terminal=true
+Icon=utilities-system-monitor
+Categories=System;Utility;
+
+# Exec must be an absolute path in many desktop environments. When the .desktop
+# file is installed, %k expands to the absolute path of the .desktop file.
+# We use a small bash -c shim to cd to the dist folder and run ./run.sh so it
+# finds the bundled binary next to it.
+Exec=sh -c 'cd "$(dirname "$1")" && ./run.sh' -- %k
+
+# Allow launching when the .desktop file is not installed system-wide.
+X-GNOME-UsesNotifications=false
+X-GNOME-Autostart-enabled=false
