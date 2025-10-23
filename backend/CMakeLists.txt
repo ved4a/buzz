@@ -9,20 +9,22 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
 endif()
 
-add_executable(system_monitor
-    src/main.cpp
+add_executable(buzz
+    # src/main.cpp
+    src/tui_main.cpp
     src/cpu.cpp
     src/memory.cpp
     src/processes.cpp
     src/disk.cpp
     src/network.cpp
     src/battery.cpp
-    src/cli.cpp) # define executable
+  # src/cli.cpp
+  src/snapshot.cpp) # define executable
 
-target_include_directories(system_monitor PRIVATE include)
+target_include_directories(buzz PRIVATE include)
 
 if (CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU")
-  target_compile_options(system_monitor PRIVATE
+  target_compile_options(buzz PRIVATE
     -O3 # optimization flag
     
     -Wall
